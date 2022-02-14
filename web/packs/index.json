@@ -1,29 +1,35 @@
 {
   "packs": [
     "BobJellyfish.json",
+    "Cacti.json",
     "CactusAndBalloon.json",
     "Cat2O.json",
     "CatInHat.json",
     "DinDino.json",
     "DisgruntledToad.json",
     "Emotionalpaca.json",
+    "FishPuffer.json",
     "HoneyBadgerrr.json",
     "HotCherry.json",
     "LamaProblama.json",
     "MelieTheCavy.json",
     "MrCaterpillar.json",
+    "MrLittlePrince.json",
     "MrSeal.json",
     "MrSlothy.json",
     "NewYearTiger.json",
+    "OctoPaul.json",
     "PigeonGulya.json",
     "Polar_Owl.json",
     "RaccoonyDays.json",
     "Red_Squirrel.json",
     "RickAndMorty.json",
     "Shpooky.json",
+    "Snail.json",
+    "SnappyCrab.json",
     "UnicornStella.json",
     "UtyaDuck.json",
-    "DisgruntledToad.json"
+    "WildElephant.json"
   ],
   "homeserver_url": "https://matrix.booq.org"
 }
