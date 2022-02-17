@@ -25,9 +25,7 @@ from . import matrix
 open_utf8 = partial(open, encoding='UTF-8')
 
 def convert_image(data: bytes) -> (bytes, int, int):
-    image: Image.Image = Image.open(BytesIO(data)).convert("RGBA")
-    new_file = BytesIO()
-    image.save(new_file, "png")
+    image: Image.Image = Image.open(BytesIO(data))
     w, h = image.size
     if w > 256 or h > 256:
         # Set the width and height to lower values so clients wouldn't show them as huge images
@@ -37,7 +35,7 @@ def convert_image(data: bytes) -> (bytes, int, int):
         else:
             w = int(w / (h / 256))
             h = 256
-    return new_file.getvalue(), w, h
+    return w, h
 
 
 def add_to_index(name: str, output_dir: str) -> None:
@@ -56,7 +54,7 @@ def add_to_index(name: str, output_dir: str) -> None:
         print(f"Added {name} to {index_path}")
 
 
-def make_sticker(mxc: str, width: int, height: int, size: int,
+def make_sticker(mxc: str, width: int, height: int, size: int, mime_type: str = "image/png",
                  body: str = "") -> matrix.StickerInfo:
     return {
         "body": body,
@@ -65,7 +63,7 @@ def make_sticker(mxc: str, width: int, height: int, size: int,
             "w": width,
             "h": height,
             "size": size,
-            "mimetype": "image/png",
+            "mimetype": mime_type,
 
             # Element iOS compatibility hack
             "thumbnail_url": mxc,
