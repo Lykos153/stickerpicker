@@ -83,6 +83,7 @@ class App extends Component {
 		this.reloadPacks = this.reloadPacks.bind(this)
 		this.observeSectionIntersections = this.observeSectionIntersections.bind(this)
 		this.observeImageIntersections = this.observeImageIntersections.bind(this)
+		this.full_images = {}
 	}
 
 	_getStickersByID(ids) {
@@ -199,7 +200,16 @@ class App extends Component {
 		for (const entry of intersections) {
 			const img = entry.target.children.item(0)
 			if (entry.isIntersecting) {
-				img.setAttribute("src", img.getAttribute("data-src"))
+				img.setAttribute("src", makeThumbnailURL(img.getAttribute("data-src")))
+				var full_img = new Image()
+				full_img.src = makeStickerURL(img.getAttribute("data-src"))
+				full_img.onload = function() {
+					if("visible" in img.classList) {
+						img.src = full_img.src
+					}
+				}
+				this.full_images[img.getAttribute("data-sticker-id")] = full_img
+
 				img.classList.add("visible")
 			} else {
 				img.removeAttribute("src")
@@ -364,7 +374,7 @@ const Pack = ({ pack, send }) => html`
 
 const Sticker = ({ content, send }) => html`
 	<div class="sticker" onClick=${send} data-sticker-id=${content.id}>
-		<img data-src=${makeStickerURL(content.url)} alt=${content.body} />
+		<img data-src=${content.url} alt=${content.body} />
 	</div>
 `
 
