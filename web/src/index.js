@@ -363,10 +363,8 @@ const Pack = ({ pack, send }) => html`
 `
 
 const Sticker = ({ content, send }) => html`
-	<div class="sticker" onClick=${send} data-sticker-id=${content.id}
-		 onMouseEnter="${(evt => setStickerUrl(evt, true, content.url))}"
-		 onMouseLeave="${(evt => setStickerUrl(evt, false, content.url))}">
-		<img data-src=${makeThumbnailURL(content.url)} alt=${content.body} />
+	<div class="sticker" onClick=${send} data-sticker-id=${content.id}>
+		<img data-src=${makeStickerURL(content.url)} alt=${content.body} />
 	</div>
 `
 
