@@ -31,7 +31,11 @@
         "SnappyCrab.json",
         "UnicornStella.json",
         "UtyaDuck.json",
-        "WildElephant.json"
+        "WildElephant.json",
+        "Arachnid.json",
+        "DaisyRomashka.json",
+        "Flame.json",
+        "HomeElectronics.json"
     ],
     "homeserver_url": "https://matrix.booq.org"
 }
