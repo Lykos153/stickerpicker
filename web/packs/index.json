@@ -35,7 +35,11 @@
         "Arachnid.json",
         "DaisyRomashka.json",
         "Flame.json",
-        "HomeElectronics.json"
+        "HomeElectronics.json",
+	"BobbyTurtle.json",
+	"BumbIebee.json",
+	"FangBat.json",
+	"GreenLezard.json"
     ],
     "homeserver_url": "https://matrix.booq.org"
 }
