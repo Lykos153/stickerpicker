@@ -32,7 +32,6 @@ if (params.has('config')) {
 let HOMESERVER_URL = "https://matrix-client.matrix.org"
 
 const makeThumbnailURL = mxc => `${HOMESERVER_URL}/_matrix/media/r0/thumbnail/${mxc.substr(6)}?height=128&width=128&method=scale`
-const makeStickerURL = mxc => `${HOMESERVER_URL}/_matrix/media/r0/download/${mxc.substr(6)}`
 
 // We need to detect iOS webkit because it has a bug related to scrolling non-fixed divs
 // This is also used to fix scrolling to sections on Element iOS
@@ -330,13 +329,6 @@ const scrollToSection = (evt, id) => {
 	evt.preventDefault()
 }
 
-// Replace thumbnails with original images on hover (for animated stickers)
-const setStickerUrl = (evt, isHover, mxc) => {
-	const url = isHover ? makeStickerURL(mxc) : makeThumbnailURL(mxc)
-	evt.target.children[0].src = url
-	evt.target.children[0].dataset.src = url
-}
-
 const NavBarItem = ({ pack, iconOverride = null }) => html`
 	<a href="#pack-${pack.id}" id="nav-${pack.id}" data-pack-id=${pack.id} title=${pack.title}
 	   onClick=${isMobileSafari ? (evt => scrollToSection(evt, pack.id)) : undefined}>
@@ -363,10 +355,8 @@ const Pack = ({ pack, send }) => html`
 `
 
 const Sticker = ({ content, send }) => html`
-	<div class="sticker" onClick=${send} data-sticker-id=${content.id}
-		 onMouseEnter="${(evt => setStickerUrl(evt, true, content.url))}"
-		 onMouseLeave="${(evt => setStickerUrl(evt, false, content.url))}">
-		<img data-src=${makeThumbnailURL(content.url)} alt=${content.body} />
+	<div class="sticker" onClick=${send} data-sticker-id=${content.id}>
+		<img data-src=${makeThumbnailURL(content.url)} alt=${content.body} title=${content.body} />
 	</div>
 `
 
