@@ -1,7 +1,6 @@
 {
     "packs": [
         "BobJellyfish.json",
-        "Cacti.json",
         "CactusAndBalloon.json",
         "Cat2O.json",
         "CatInHat.json",
@@ -36,10 +35,10 @@
         "DaisyRomashka.json",
         "Flame.json",
         "HomeElectronics.json",
-	"BobbyTurtle.json",
-	"BumbIebee.json",
-	"FangBat.json",
-	"GreenLezard.json"
+        "BobbyTurtle.json",
+        "BumbIebee.json",
+        "FangBat.json",
+        "GreenLezard.json"
     ],
     "homeserver_url": "https://matrix.booq.org"
 }
