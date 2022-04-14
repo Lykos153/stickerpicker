@@ -3,6 +3,7 @@
 import datetime
 import requests
 import os
+import argparse
 
 def get_users(homeserver, admin_token):
     next_token = 0
@@ -70,9 +71,27 @@ def set_m_widgets(homeserver, user, token, url, erase=False):
     )
     return res.status_code == 200
 
-def set_m_widgets_users(homeserver, users, erase=False):
+def set_m_widgets_users(homeserver, users, admin_token, sticker_url, erase=False):
     print(f"Setting widgets...")
     for user in users:
         print(f"  {user}")
-        token = get_login_token(homeserver, user)
+        token = get_login_token(homeserver, user, admin_token)
         set_m_widgets(homeserver, user, token, sticker_url, erase=erase)
+
+if __name__ == "__main__":
+    parser = argparse.ArgumentParser()
+
+    parser.add_argument(
+        "user",
+        help="User(s) for whom to enable the stickerpicker widget",
+        nargs="*"
+    )
+
+    parser.add_argument("--url", help="URL to the stickerpicker", default="https://maunium.net/stickers-demo/?theme=$theme")
+    
+    args = parser.parse_args()
+
+    admin_token = os.environ["MATRIX_ADMIN_TOKEN"]
+    homeserver = os.environ["MATRIX_HOMESERVER"]
+
+    set_m_widgets_users(homeserver, args.user, admin_token, args.url)
