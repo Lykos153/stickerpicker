@@ -38,7 +38,8 @@
         "BobbyTurtle.json",
         "BumbIebee.json",
         "FangBat.json",
-        "GreenLezard.json"
+        "GreenLezard.json",
+        "LiveFlowers.json"
     ],
     "homeserver_url": "https://matrix.booq.org"
 }
