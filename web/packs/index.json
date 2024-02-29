@@ -39,7 +39,22 @@
         "BumbIebee.json",
         "FangBat.json",
         "GreenLezard.json",
-        "LiveFlowers.json"
+        "LiveFlowers.json",
+        "BunnyHazard.json",
+        "BunnyVampire.json",
+        "ChineseDragon.json",
+        "DonutTheDog.json",
+        "Ladybug.json",
+        "MrPepe.json",
+        "MrRadish.json",
+        "Pillow.json",
+        "PotterPig.json",
+        "ShadowKitty.json",
+        "SpottyGiraffe.json",
+        "SquidwardInLove.json",
+        "StarPatrick.json",
+        "Stingray.json",
+        "TheCuttlefish.json"
     ],
     "homeserver_url": "https://matrix.booq.org"
 }
